@@ -77,8 +77,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eK1-Al-jpc">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="普通"/>
-                    <state key="selected" title="卫星"/>
+                    <state key="normal" title="卫星"/>
+                    <state key="selected" title="普通"/>
                     <connections>
                         <action selector="dealBtn1:" destination="-1" eventType="touchUpInside" id="3cy-dy-9hJ"/>
                     </connections>
@@ -104,8 +104,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyO-d0-Muo">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="显示指南针"/>
-                    <state key="selected" title="隐藏指南针"/>
+                    <state key="normal" title="隐藏指南针"/>
+                    <state key="selected" title="显示指南针"/>
                     <connections>
                         <action selector="dealBtn11:" destination="-1" eventType="touchUpInside" id="5vr-qs-3If"/>
                     </connections>
@@ -113,20 +113,28 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uR6-4S-5Ym">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="显示交通"/>
-                    <state key="selected" title="隐藏交通"/>
+                    <state key="normal" title="隐藏比例尺"/>
+                    <state key="selected" title="显示比例尺"/>
+                    <connections>
+                        <action selector="dealBtn12:" destination="-1" eventType="touchUpInside" id="or7-xi-Ryh"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgt-9i-m2u">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="显示交通"/>
-                    <state key="selected" title="隐藏交通"/>
+                    <state key="normal" title="截屏"/>
+                    <connections>
+                        <action selector="dealBtn13:" destination="-1" eventType="touchUpInside" id="SLa-af-XuM"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXC-15-YLd">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="显示交通"/>
-                    <state key="selected" title="隐藏交通"/>
+                    <state key="normal" title="开启定位"/>
+                    <state key="selected" title="关闭定位"/>
+                    <connections>
+                        <action selector="dealBtn14:" destination="-1" eventType="touchUpInside" id="I5l-w8-Oig"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh0-Zm-Ju0">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>

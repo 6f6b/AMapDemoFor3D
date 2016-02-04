@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
-
 //    for (int i=0; i<210; i++) {
 //        MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
 //        annotation.title = @"天安门";
@@ -34,7 +33,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+    if (updatingLocation) {
+        NSLog(@"经度：%f",userLocation.coordinate.latitude);
+        NSLog(@"纬度：%f",userLocation.coordinate.longitude);
+    }
+}
 
 #pragma mark -- 切换卫星/普通
 - (IBAction)dealBtn1:(id)sender {
@@ -79,11 +83,6 @@
 }
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
-    //    NSLog(@"yes");
-    //    MAAnnotationView *annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation"];
-    //    annotationView.image = [UIImage imageNamed:@"订单完成"];
-    //
-    //    return annotationView;
     
     
     MAPinAnnotationView *annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation"];
@@ -184,6 +183,7 @@
     }
 }
 
+#pragma mark -- 显示/隐藏自定义图片
 - (IBAction)dealBtn8:(id)sender {
     UIButton *button = sender;
     button.selected = !button.selected;
@@ -199,6 +199,7 @@
     }
 }
 
+#pragma mark -- 显示/隐藏自定义图层
 - (IBAction)dealBtn9:(id)sender {
     UIButton *button = sender;
     button.selected = !button.selected;
@@ -212,6 +213,8 @@
         
     }
 }
+
+#pragma mark -- 显示/隐藏热力图层
 - (IBAction)dealBtn10:(id)sender {
     UIButton *button = sender;
     button.selected = !button.selected;
@@ -241,8 +244,76 @@
         
     }
 }
+
+#pragma mark -- 显示/隐藏指南针
 - (IBAction)dealBtn11:(id)sender {
+    UIButton *button = sender;
+    button.selected = !button.selected;
     
+    if (button.selected) {
+        self.mapView.showsCompass = NO;
+//        self.mapView.compassOrigin设置指南针的位置
+    }
+    if (!button.selected) {
+        self.mapView.showsCompass = YES;
+    }
+}
+
+#pragma mark -- 显示/隐藏比例尺
+- (IBAction)dealBtn12:(id)sender {
+    UIButton *button = sender;
+    button.selected = !button.selected;
+    
+    if (button.selected) {
+        self.mapView.showsScale = NO;
+    }
+    if (!button.selected) {
+        self.mapView.showsScale = YES;
+    }
+}
+
+#pragma mark -- 截屏
+- (IBAction)dealBtn13:(id)sender {
+    UIButton *button = sender;
+    button.selected = !button.selected;
+    UIImage *image = [self.mapView takeSnapshotInRect:self.mapView.bounds];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+//    if (button.selected) {
+//        
+//    }
+//    if (!button.selected) {
+//        
+//    }
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    NSLog(@"成功");
+}
+
+#pragma mark -- 开启／关闭定位
+- (IBAction)dealBtn14:(id)sender {
+    UIButton *button = sender;
+    button.selected = !button.selected;
+    
+    if (button.selected) {
+        self.mapView.showsUserLocation = YES;
+        [self.mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+    }
+    if (!button.selected) {
+        self.mapView.showsUserLocation = NO;
+    }
+}
+
+#pragma mark -- 显示/隐藏
+- (IBAction)dealBtn15:(id)sender {
+    UIButton *button = sender;
+    button.selected = !button.selected;
+    
+    if (button.selected) {
+    }
+    if (!button.selected) {
+        
+    }
 }
 
 - (MATileOverlay *)constructTileOverlayWithFloor:(NSInteger)floor
